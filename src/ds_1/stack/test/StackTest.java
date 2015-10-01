@@ -1,7 +1,7 @@
-package com.learn.ds.stack.test;
+package ds_1.stack.test;
 
-import com.learn.ds.stack.MyStackArray;
-import com.learn.ds.stack.MyStackLinkedListGeneric;
+import ds_1.stack.MyStackArray;
+import ds_1.stack.MyStackLinkedListGeneric;
 
 public class StackTest {
 

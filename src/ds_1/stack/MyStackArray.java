@@ -3,7 +3,7 @@
  *  
  */
 
-package com.learn.ds.stack;
+package ds_1.stack;
 
 import java.util.EmptyStackException;
 

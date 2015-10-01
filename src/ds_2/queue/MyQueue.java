@@ -1,4 +1,4 @@
-package com.learn.ds.queue;
+package ds_2.queue;
 
 public class MyQueue {
 	

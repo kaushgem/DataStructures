@@ -1,51 +1,53 @@
 /*
- * Stack implementation using LinkedList
+ * Stack implementation using LinkedList with Generic type
  *  
  */
 
-package com.learn.ds.stack;
+package ds_1.stack;
 
 import java.util.EmptyStackException;
 
 /**
  *
  * @author kaush
+ * @param <T>
  */
-public class MyStackLinkedList {
-    private Node top;
+public class MyStackLinkedListGeneric<T> {
+    private Node<T> top;
     
-    private static class Node {
-        private int data;
-        private Node next;
-        public Node(int _data) {
+    private static class Node<T> {
+        private T data;
+        private Node<T> next;
+        public Node(T _data) {
             data = _data;
         }
     }
-
-    public void push(int _data) {
-        Node newN = new Node(_data);
+    
+    public void push(T _data) {
+        Node<T> newN = new Node<T>(_data);
         newN.next = top;
         top = newN;
     }
-        
-    public int pop() {
+    
+    public T pop() {
         if (top == null) throw new EmptyStackException();
-        int val = top.data;
+        T val = top.data;
         top = top.next;
         return val;
     }
-
-    public int peek() {
+    
+    public T peek() {
         if (top == null) throw new EmptyStackException();
         return top.data;
     }
-
+    
     public boolean isEmpty() {
         return (top == null);
     }
     
     public static void main(String[] args) {
-        MyStackLinkedList stack = new MyStackLinkedList();
+    	// Diamond Operator
+        MyStackLinkedListGeneric<Integer> stack = new MyStackLinkedListGeneric<>();
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -54,6 +56,6 @@ public class MyStackLinkedList {
         System.out.println(stack.peek());
         System.out.println(stack.isEmpty());
     }
-    
-    
 }
+    
+
