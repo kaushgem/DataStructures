@@ -1,7 +1,10 @@
 package ds_2.queue;
 
+import java.util.NoSuchElementException;
+
+
 public class MyQueue {
-	
+
 	private static class Node {
 		private String data;
 		private Node next;
@@ -9,9 +12,9 @@ public class MyQueue {
 			data = _data;
 		}
 	}
-	
-	Node front, back;
-	
+
+	private Node front, back;
+
 	public void enqueue(String _data) {
 		Node newN = new Node(_data);
 		if(isEmpty()) {
@@ -23,22 +26,29 @@ public class MyQueue {
 			back = back.next;
 		}
 	}
-	
+
 	public String dequeue() {
-		String val = null;
-		if(!isEmpty()) {
-			val = front.data;
-			front = front.next;
-			if(isEmpty())
-				back = null;
-		}
+		if(isEmpty())
+			throw new NoSuchElementException();
+		
+		String val = front.data;
+		front = front.next;
+		
+		if(isEmpty())
+			back = null;
 		return val;
 	}
 	
+	public String peek() {
+		if(isEmpty())
+			throw new NoSuchElementException();
+		return front.data;
+	}
+
 	public boolean isEmpty() {
 		return front == null;
 	}
-	
+
 	public static void main(String[] args) {
 		MyQueue queue = new MyQueue();
 		queue.enqueue("1");
