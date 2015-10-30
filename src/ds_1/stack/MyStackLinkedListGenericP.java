@@ -30,14 +30,16 @@ public class MyStackLinkedListGenericP<T> {
     }
     
     public T pop() {
-        if (top == null) throw new EmptyStackException();
+        if (isEmpty())
+        	throw new EmptyStackException();
         T val = top.data;
         top = top.next;
         return val;
     }
     
     public T peek() {
-        if (top == null) throw new EmptyStackException();
+        if (isEmpty())
+        	throw new EmptyStackException();
         return top.data;
     }
     
