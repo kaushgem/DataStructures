@@ -10,12 +10,12 @@ package sort_1.elementary;
 public class SelectionSort {
 
 	public static void sort(int[] a) {
-
-		for (int i = 0; i < a.length; i++) {
+		for (int i = 0; i < a.length - 1; i++) {
 			int min = i;
-			for (int j = i + 1; j < a.length; j++)
+			for (int j = i + 1; j < a.length; j++) {
 				if (compare_lessThan(a[j], a[min]))
 					min = j;
+			}
 			swap(a, i, min);
 		}
 	}
@@ -32,9 +32,7 @@ public class SelectionSort {
 
 	// Test method
 	public static void main(String[] args) {
-		
 		int[] a = { 10, 4, 45, 34, 7, 56, 5, 23, 43, 99, 56, 34, 54, 76 };
-		
 		for (int val : a)	System.out.print(val + " ");
 		System.out.println();
 		sort(a);
